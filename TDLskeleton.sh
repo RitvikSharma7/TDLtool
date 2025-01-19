@@ -1,6 +1,11 @@
 #!/bin/bash
 
 fileName=tdlcli
+header='###################################################################################'
+title='#  Welcome to the TDL tool.\n# This tool will help you manage your task and time.'
+
+echo -e "${header}\n${title}\n${header}"
+
 	
 ui()
 {
@@ -51,7 +56,11 @@ delete_task()
 
   if [[ -s "$fileName" ]]; then
     if grep -q "$desc" "$fileName"; then
-      sed -i "/$desc/d" "$fileName"
+      echo "Matching task(s) found:"
+      grep -n "$desc" "$fileName"
+      echo "what task do you want to delete in line:"
+      read -r linenum
+      sed -i "${linenum}d" "$fileName"
       echo "Task deleted."
     else
       echo "Task not found."	
@@ -67,7 +76,7 @@ see_tasks()
     echo "File has no tasks to fetch."
   else
     echo "-------------------------------------"
-    cat "$fileName"
+    cat "$fileName" | sed = | sed 'N;s/\n/.) /'
     echo "-------------------------------------"
   fi    
 }
