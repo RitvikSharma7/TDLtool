@@ -53,6 +53,8 @@ delete_task()
 {
   echo "Please delete task on description or date."
   read -r desc
+  last_line=$(wc -l < "$fileName")
+  input_val="^([1-9]|[1-9][0-9]|${last_line})$"
 
   if [[ -s "$fileName" ]]; then
     if grep -q "$desc" "$fileName"; then
@@ -60,8 +62,12 @@ delete_task()
       grep -n "$desc" "$fileName"
       echo "what task do you want to delete in line:"
       read -r linenum
-      sed -i "${linenum}d" "$fileName"
-      echo "Task deleted."
+      if [[ ${linenum} =~ $input_val ]] && [[ ${linenum} -le last_line ]]; then
+       sed -i "${linenum}d" "$fileName"
+       echo "Task deleted."
+      else
+        echo "Invalid task line."
+      fi
     else
       echo "Task not found."	
     fi
