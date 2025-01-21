@@ -54,7 +54,7 @@ delete_task()
   echo "Please delete task on description or date."
   read -r desc
   last_line=$(wc -l < "$fileName")
-  input_val="^([1-9]|[1-9][0-9]|${last_line})$"
+  input_val='^[0-9]+$'
 
   if [[ -s "$fileName" ]]; then
     if grep -q "$desc" "$fileName"; then
@@ -71,7 +71,7 @@ delete_task()
     else
       echo "Task not found."	
     fi
-  else
+ else
     echo "No tasks in list."
   fi
 }
