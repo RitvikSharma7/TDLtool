@@ -40,12 +40,18 @@ add_task()
 {
   echo "Please add task description required."
   read -r task
+  task_val='^[a-zA-Z]+(?: [a-zA-Z]+)*$'
 	
   echo "Please add when it should be done in M-D-Y-T format"
   read -r date
-  
-  echo "$task------->$date" >> "$fileName"
-  echo "Task added to list."
+  date_val='^([1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-(\d{4})-([1-9]|1[0-2]):([0-9]{2}) (AM|PM)$'
+
+  if [[ "$task" =~ $task_val && "$date_val" =~ $date_val ]]; then
+    echo "$task------->$date" >> "$fileName"
+    echo "Task added to list."
+  else
+    echo "Invalid format."
+  fi
 }
 
 
