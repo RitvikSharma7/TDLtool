@@ -1,0 +1,91 @@
+body {
+    background: linear-gradient(to right, rgb(0, 136, 255), rgb(248, 18, 248));
+}
+
+.taskInput {
+    position: absolute;
+    top: 100px;  /* Distance from top */
+    left: 450px; /* Distance from left */
+    width: 600px;
+    height: 60px;
+    background-color: transparent;
+    border: 0px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#addTask{
+    position: relative;
+    top:15px;
+    left: 40px;
+    width: 300px;
+    height: 31px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#addTaskButton{
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    top:15px;
+    left: 50px;
+    width: 60px;
+    height: 38px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#addTaskButton:hover {
+    background-color: rgb(0, 136, 255); /* Changes color on hover */
+}
+
+#TDL{
+    position: absolute;
+    top: 50px;  /* Distance from top */
+    left: 620px;
+    font-size: 30px; /* Increases label size */
+    font-family: Arial, sans-serif; /* Changes font */
+    font-weight: bold; /* Makes text bold */
+    color: rgb(0, 0, 0); /* Changes text color */
+}
+
+#list {
+    list-style: none;
+    padding: 0;
+    position: relative; /* Allows absolute positioning inside */
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 12px;
+    width: 360px;
+    height: 25px;
+    border-radius: 10px;
+    position: absolute; /* Allows manual positioning */
+    left: 485px; /* Align all tasks */
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.delete-btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    width: 65px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
